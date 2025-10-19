@@ -1,0 +1,18 @@
+## 1. Problemática a Solucionar
+
+Los estudiantes de Geología, durante su proceso de formación y en sus prácticas de campo, enfrentan un desafío significativo en la identificación de minerales. El método tradicional se basa en la consulta de guías físicas, libros extensos y catálogos, junto con el uso de herramientas manuales como lupas, navajas y losas de cerámica para analizar las propiedades de las muestras. Si bien este proceso es riguroso, su principal inconveniente es la lentitud. El estudiante debe cruzar manualmente las características observadas con una gran cantidad de información dispersa, lo que consume un tiempo valioso, aumenta la probabilidad de error y puede obstaculizar un aprendizaje más dinámico y eficiente.
+
+## 2. Justificación
+
+La creación de esta herramienta se justifica por su potencial para optimizar el proceso de identificación de minerales, combinando eficiencia, aprendizaje activo y accesibilidad. Desde el punto de vista operativo, la aplicación permite al estudiante registrar fácilmente las propiedades observables de un mineral —como dureza, color, brillo o magnetismo— y obtener de inmediato una propuesta de identificación acompañada de imagen y descripción. Esto no solo reduce el tiempo y el esfuerzo requeridos frente a la consulta manual en libros o bases de datos extensas, sino que también fomenta un aprendizaje significativo: al comparar los resultados con la muestra real, el estudiante refuerza la asociación entre las propiedades físicas y los minerales correspondientes. Además, al estar disponible en formato digital y portable, la herramienta democratiza el acceso al conocimiento geológico, facilitando que cualquier estudiante, incluso fuera del laboratorio o aula, pueda explorar, contrastar y aprender sobre los minerales con tan solo un toque en su dispositivo.
+
+## 3. Objetivo General
+
+Desarrollar una aplicación web interactiva, utilizando Python con el framework Flask, que identifique minerales a partir de sus características físicas. La aplicación servirá como una herramienta de apoyo educativo para estudiantes de Geología, proporcionando predicciones precisas acompañadas de descripciones y fotografías de referencia.
+
+## 4. Objetivos Específicos
+
+**1. Estructurar la Base de Conocimiento:** Diseñar y construir una base de datos, posiblemente en formato JSON, que almacene de manera organizada las propiedades (dureza, color, brillo, etc.), descripciones y rutas a imágenes de un catálogo de minerales seleccionados.
+**2. Implementar el Motor de Inferencia (Backend):** Desarrollar en Python la lógica central de la aplicación. Esto incluye un algoritmo que reciba las características ingresadas por el usuario, las compare con la base de datos y calcule una puntuación de coincidencia para determinar los minerales más probables.
+**3. Diseñar la Interfaz de Usuario (Frontend):** Crear una interfaz web visual e intuitiva utilizando HTML, CSS y JavaScript. El diseño se centrará en estandarizar la entrada de datos para minimizar errores, utilizando componentes interactivos como ruedas cromáticas para la selección de color y raya, y menús desplegables para propiedades como el brillo. La interfaz deberá mostrar los resultados (nombre del mineral, descripción, imagen) de forma clara y atractiva.
+**4.Integrar Backend y Frontend:** Utilizar Flask para establecer la comunicación entre la interfaz de usuario y el motor de inferencia. La aplicación deberá gestionar las solicitudes del usuario, procesarlas en el backend y devolver los resultados para ser mostrados en el navegador.
