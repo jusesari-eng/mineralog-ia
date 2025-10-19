@@ -73,9 +73,10 @@ Para ejecutar este proyecto en tu máquina local, sigue estos pasos:
     python app.py
     ```
 
-5.  Abre tu navegador y ve a `http://127.0.0.1:5000`
+5.  **Abre tu navegador y ve a `http://127.0.0.1:5000`**
 
 ## Estructura del Proyecto
+```plaintext
 mineralog-ia/
 ├── app.py # Lógica principal de Flask (backend)
 ├── requirements.txt # Dependencias de Python
@@ -87,6 +88,7 @@ mineralog-ia/
 │ └── styles.css # Estilos de la aplicación
 └── js/
 └── script.js # Lógica del frontend (JavaScript)
+```
 
 ## Próximos Pasos
 
