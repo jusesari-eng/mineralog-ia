@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identificador de Minerales</title>
+    <!-- OJO: El nombre del archivo CSS es styles.css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Catálogo de Minerales</h1>
+    </header>
+    <main class="catalogo-container">
+        <!-- Usamos un bucle for para recorrer la lista de minerales -->
+        {% for mineral in minerales %}
+        <div class="card">
+            <img src="{{ mineral.imagen }}" alt="Imagen de {{ mineral.nombre }}">
+            <h3>{{ mineral.nombre }}</h3>
+            <p>Dureza: {{ mineral.dureza }}</p>
+        </div>
+        {% endfor %}
+    </main>
+</body>
+</html>
