@@ -11,13 +11,43 @@
     <header>
         <h1>Catálogo de Minerales</h1>
     </header>
+    <div class="form-container">
+        <h2>Identificar un Mineral</h2>
+        <form id="identification-form">
+            <div class="form-group">
+                <label for="color">Color:</label>
+                <input type="text" id="color" name="color" placeholder="Ej: Amarillo, Incoloro...">
+            </div>
+
+            <div class="form-group">
+                <label for="dureza">Dureza (Mohs):</label>
+                <input type="number" id="dureza" name="dureza" step="0.1" placeholder="Ej: 7 o 6.5">
+            </div>
+
+            <div class="form-group">
+                <label for="brillo">Brillo:</label>
+                <select id="brillo" name="brillo">
+                    <option value="">-- Selecciona un brillo --</option>
+                    <option value="metalico">Metálico</option>
+                    <option value="vitreo">Vítreo (como el vidrio)</option>
+                    <option value="resinoso">Resinoso</option>
+                    <option value="sedoso">Sedoso</option>
+                    <option value="mate">Mate / Terroso</option>
+                </select>
+            </div>
+
+            <button type="submit">Identificar</button>
+        </form>
+    </div>
     <main class="catalogo-container">
         <!-- Usamos un bucle for para recorrer la lista de minerales -->
         {% for mineral in minerales %}
         <div class="card">
             <img src="{{ mineral.imagen }}" alt="Imagen de {{ mineral.nombre }}">
             <h3>{{ mineral.nombre }}</h3>
-            <p>Dureza: {{ mineral.dureza }}</p>
+            <p><strong>Fórmula:</strong> {{ mineral.formula }}</p> 
+            <p><strong>Dureza:</strong> {{ mineral.dureza }}</p>
+            <p><strong>Color:</strong> {{ mineral.color }}</p>
         </div>
         {% endfor %}
     </main>
