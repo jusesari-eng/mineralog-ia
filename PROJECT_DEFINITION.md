@@ -13,6 +13,9 @@ Desarrollar una aplicación web interactiva, utilizando Python con el framework 
 ## 4. Objetivos Específicos
 
 **1. Estructurar la Base de Conocimiento:** Diseñar y construir una base de datos, posiblemente en formato JSON, que almacene de manera organizada las propiedades (dureza, color, brillo, etc.), descripciones y rutas a imágenes de un catálogo de minerales seleccionados.
+
 **2. Implementar el Motor de Inferencia (Backend):** Desarrollar en Python la lógica central de la aplicación. Esto incluye un algoritmo que reciba las características ingresadas por el usuario, las compare con la base de datos y calcule una puntuación de coincidencia para determinar los minerales más probables.
+
 **3. Diseñar la Interfaz de Usuario (Frontend):** Crear una interfaz web visual e intuitiva utilizando HTML, CSS y JavaScript. El diseño se centrará en estandarizar la entrada de datos para minimizar errores, utilizando componentes interactivos como ruedas cromáticas para la selección de color y raya, y menús desplegables para propiedades como el brillo. La interfaz deberá mostrar los resultados (nombre del mineral, descripción, imagen) de forma clara y atractiva.
+
 **4.Integrar Backend y Frontend:** Utilizar Flask para establecer la comunicación entre la interfaz de usuario y el motor de inferencia. La aplicación deberá gestionar las solicitudes del usuario, procesarlas en el backend y devolver los resultados para ser mostrados en el navegador.
