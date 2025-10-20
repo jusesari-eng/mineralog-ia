@@ -1,0 +1,16 @@
+[
+    {
+        "nombre": "Cuarzo",
+        "formula": "SiO₂",
+        "dureza": "7",
+        "color": "Incoloro, blanco, rosa, violeta",
+        "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Quartz%2C_Tibet.jpg/800px-Quartz%2C_Tibet.jpg"
+    },
+    {
+        "nombre": "Pirita",
+        "formula": "FeS₂",
+        "dureza": "6 - 6.5",
+        "color": "Amarillo latón pálido",
+        "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Pirita_-_Navajun.jpg/800px-Pirita_-_Navajun.jpg"
+    }
+]
