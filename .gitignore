@@ -138,6 +138,9 @@ celerybeat.pid
 .env
 .envrc
 .venv
+/.vscode/
+/.mi_ambiente_mineralog-ia/
+/.venv-tablet/
 env/
 venv/
 ENV/
