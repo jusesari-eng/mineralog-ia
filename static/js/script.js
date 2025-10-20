@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
         return closestColor;
-    } // <-- ¡AQUÍ FALTABA LA LLAVE DE CIERRE!
+    }
 
     // --- LÓGICA DEL FORMULARIO ---
     const form = document.getElementById('identification-form');
