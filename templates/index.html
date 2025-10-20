@@ -4,59 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Identificador de Minerales</title>
-    <!-- OJO: El nombre del archivo CSS es styles.css -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/coloris.min.css') }}">
 </head>
 <body>
     <header>
-        <h1>Catálogo de Minerales</h1>
+        <!-- He cambiado el título para que refleje toda la app, no solo el catálogo -->
+        <h1>Identificador de Minerales</h1>
     </header>
-    <div class="form-container">
-        <h2>Identificar un Mineral</h2>
-        <form id="identification-form">
-            <div class="form-group">
-                <label for="color">Color:</label>
-                <input type="text" id="color" name="color" placeholder="Color general" data-coloris>
-            </div>
+    <div class="main-content">
+        <!-- FORMULARIO DE IDENTIFICACIÓN -->
+        <div class="form-container">
+            <h2>Identificar un Mineral</h2>
+            <form id="identification-form">
+                <div class="form-group">
+                    <label for="dureza">Dureza (Mohs):</label>
+                    <input type="number" id="dureza" name="dureza" step="0.1" placeholder="Ej: 7 o 2.7">
+                </div>
 
-            <div class="form-group">
-                <label for="dureza">Dureza (Mohs):</label>
-                <input type="number" id="dureza" name="dureza" step="0.1" placeholder="Ej: 7 o 6.5">
-            </div>
+                <div class="form-group">
+                    <label for="exfoliacion">Exfoliación:</label>
+                    <select id="exfoliacion" name="exfoliacion">
+                        <option value="">-- Selecciona una opción --</option>
+                        <option value="ninguna">Ninguna</option>
+                        <option value="perfecta">Perfecta</option>
+                        <option value="buena">Buena</option>
+                        <option value="imperfecta">Imperfecta</option>
+                    </select>
+                </div>
 
-            <div class="form-group">
-                <label for="brillo">Brillo:</label>
-                <select id="brillo" name="brillo">
-                    <option value="">-- Selecciona un brillo --</option>
-                    <option value="metalico">Metálico</option>
-                    <option value="vitreo">Vítreo (como el vidrio)</option>
-                    <option value="resinoso">Resinoso</option>
-                    <option value="sedoso">Sedoso</option>
-                    <option value="mate">Mate / Terroso</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="raya">Color de la Raya:</label>
-                <input type="text" id="raya" name="raya" placeholder="Color de la raya..." data-coloris>
-            </div>
+                <div class="form-group">
+                    <label for="color">Color:</label>
+                    <input type="text" id="color" name="color" placeholder="Color general" data-coloris>
+                </div>
 
-            <button type="submit">Identificar</button>
-        </form>
+                <div class="form-group">
+                    <label for="brillo">Brillo:</label>
+                    <select id="brillo" name="brillo">
+                        <option value="">-- Selecciona un brillo --</option>
+                        <option value="metalico">Metálico</option>
+                        <option value="vitreo">Vítreo (como el vidrio)</option>
+                        <option value="resinoso">Resinoso</option>
+                        <option value="sedoso">Sedoso</option>
+                        <option value="mate">Mate / Terroso</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="raya">Color de la Raya:</label>
+                    <input type="text" id="raya" name="raya" placeholder="Color de la raya..." data-coloris>
+                </div>
+
+                <button type="submit">Identificar</button>
+            </form>
+        </div>
+
+        <!-- CONTENEDOR PARA RESULTADOS DINÁMICOS -->
+        <div id="resultados-container"></div>
     </div>
-    <div id="resultados-container"></div>
+
+    <!-- CATÁLOGO INICIAL -->
     <main class="catalogo-container">
-        <!-- Usamos un bucle for para recorrer la lista de minerales -->
         {% for mineral in minerales %}
         <div class="card">
-            <img src="{{ mineral.imagen }}" alt="Imagen de {{ mineral.nombre }}">
+            <img src="{{ url_for('static', filename=mineral.imagen) }}" alt="Imagen de {{ mineral.nombre }}">
             <h3>{{ mineral.nombre }}</h3>
-            <p><strong>Fórmula:</strong> {{ mineral.formula }}</p> 
-            <p><strong>Dureza:</strong> {{ mineral.dureza }}</p>
-            <p><strong>Color:</strong> {{ mineral.color }}</p>
+            <!-- LÍNEA NUEVA -->
+            <p class="card-description">{{ mineral.descripcion }}</p>
+            <p><em>{{ mineral.clase }}</em></p>
+            <p><strong>Fórmula:</strong> {{ mineral.formula }}</p>
+            <p><strong>Dureza:</strong> {{ mineral.dureza_min }} - {{ mineral.dureza_max }}</p>
         </div>
         {% endfor %}
     </main>
+
     <script src="{{ url_for('static', filename='js/coloris.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
