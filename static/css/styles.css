@@ -92,3 +92,9 @@ button[type="submit"] {
 button[type="submit"]:hover {
     background-color: #e68900;
 }
+#resultados-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    text-align: center;
+}

@@ -16,7 +16,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const colorMap = {
         '#FFFFFF': 'Blanco / Incoloro', '#000000': 'Negro', '#FFFF00': 'Amarillo',
         '#FFD700': 'Dorado', '#C0C0C0': 'Plateado', '#B87333': 'Cobre',
-        '#000000': 'Verde', '#FF0000': 'Rojo', '#0000FF': 'Azul',
+        '#008000': 'Verde', // <-- BONUS FIX: Aquí decía '#000000' por error
+        '#FF0000': 'Rojo', '#0000FF': 'Azul',
         '#800080': 'Violeta', '#FFC0CB': 'Rosa', '#A52A2A': 'Marrón',
         '#3B3C36': 'Negro Verdoso'
     };
@@ -85,12 +86,46 @@ document.addEventListener('DOMContentLoaded', function() {
                 body: JSON.stringify(formData)
             });
 
-            const result = await response.json();
-            console.log('Respuesta del backend:', result);
+            const data = await response.json();
+            console.log('Respuesta del backend:', data);
+
+            mostrarResultados(data.resultados);
 
         } catch (error) {
             console.error('Error al conectar con el servidor:', error);
         }
-    });
+    }); // Cierre del event listener del FORMULARIO
+
+    // --- FUNCIÓN PARA RENDERIZAR RESULTADOS ---
+    function mostrarResultados(resultados) {
+        const container = document.getElementById('resultados-container');
+        container.innerHTML = '';
+
+        if (!resultados || resultados.length === 0) {
+            container.innerHTML = '<p>No se encontraron minerales con esas características.</p>';
+            return;
+        }
+
+        const titulo = document.createElement('h2');
+        titulo.textContent = 'Resultados de la Identificación';
+        container.appendChild(titulo);
+
+        resultados.forEach(mineral => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            // Usamos url_for para las imágenes locales
+            const imageUrl = mineral.imagen ? `static/${mineral.imagen}` : '';
+            card.innerHTML = `
+                <img src="${imageUrl}" alt="Imagen de ${mineral.nombre}">
+                <h3>${mineral.nombre}</h3>
+                <p><strong>Coincidencias:</strong> ${mineral.coincidencias}</p>
+                <p><strong>Fórmula:</strong> ${mineral.formula}</p>
+                <p><strong>Dureza:</strong> ${mineral.dureza}</p>
+                <p><strong>Color:</strong> ${mineral.colores.join(', ')}</p>
+                <p><strong>Raya:</strong> ${mineral.raya.join(', ')}</p>
+            `;
+            container.appendChild(card);
+        });
+    }
 
 });
