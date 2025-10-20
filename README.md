@@ -84,10 +84,10 @@ mineralog-ia/
 ├── templates/
 │ └── index.html # Estructura HTML de la página
 └── static/
-├── css/
-│ └── styles.css # Estilos de la aplicación
-└── js/
-└── script.js # Lógica del frontend (JavaScript)
+  ├── css/
+  │ └── styles.css # Estilos de la aplicación
+  └── js/
+    └── script.js # Lógica del frontend (JavaScript)
 ```
 
 ## Próximos Pasos
