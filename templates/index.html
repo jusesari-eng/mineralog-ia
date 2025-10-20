@@ -6,6 +6,7 @@
     <title>Identificador de Minerales</title>
     <!-- OJO: El nombre del archivo CSS es styles.css -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/coloris.min.css') }}">
 </head>
 <body>
     <header>
@@ -16,7 +17,7 @@
         <form id="identification-form">
             <div class="form-group">
                 <label for="color">Color:</label>
-                <input type="text" id="color" name="color" placeholder="Ej: Amarillo, Incoloro...">
+                <input type="text" id="color" name="color" placeholder="Ej: Amarillo, Incoloro..." data-coloris>
             </div>
 
             <div class="form-group">
@@ -35,6 +36,10 @@
                     <option value="mate">Mate / Terroso</option>
                 </select>
             </div>
+            <div class="form-group">
+                <label for="raya">Color de la Raya:</label>
+                <input type="text" id="raya" name="raya" placeholder="Selecciona el color de la raya..." data-coloris>
+            </div>
 
             <button type="submit">Identificar</button>
         </form>
@@ -51,6 +56,7 @@
         </div>
         {% endfor %}
     </main>
+    <script src="{{ url_for('static', filename='js/coloris.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
