@@ -65,6 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const userRayaHex = document.getElementById('raya').value;
         const dureza = document.getElementById('dureza').value;
         const brillo = document.getElementById('brillo').value;
+        const exfoliacion = document.getElementById('exfoliacion').value; // LÍNEA NUEVA
 
         const closestColor = findClosestColor(userColorHex);
         const closestRaya = findClosestColor(userRayaHex);
@@ -73,7 +74,8 @@ document.addEventListener('DOMContentLoaded', function() {
             color: closestColor,
             raya: closestRaya,
             dureza: dureza,
-            brillo: brillo
+            brillo: brillo,
+            exfoliacion: exfoliacion // LÍNEA NUEVA
         };
 
         console.log('Color elegido por el usuario:', {color: userColorHex, raya: userRayaHex});
@@ -106,9 +108,27 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        const titulo = document.createElement('h2');
-        titulo.textContent = 'Resultados de la Identificación';
-        container.appendChild(titulo);
+        const mainContent = document.querySelector('.main-content');
+        let titulo = document.getElementById('resultados-titulo');
+        if (!titulo) {
+            titulo = document.createElement('h2');
+            titulo.id = 'resultados-titulo';
+            titulo.textContent = 'Resultados de la Identificación';
+            // Lo insertamos después del formulario
+            container.insertAdjacentElement('beforebegin', titulo);
+        }
+        if (!resultados || resultados.length === 0) {
+            // Ocultamos el título si ya existía de una búsqueda anterior
+            const tituloExistente = document.getElementById('resultados-titulo');
+            if (tituloExistente) tituloExistente.style.display = 'none';
+            
+            container.innerHTML = '<p>No se encontraron minerales con esas características.</p>';
+            return;
+        } else {
+            // Nos aseguramos de que el título sea visible
+            const tituloExistente = document.getElementById('resultados-titulo');
+            if (tituloExistente) tituloExistente.style.display = 'block';
+        }
 
         resultados.forEach(mineral => {
             const card = document.createElement('div');
@@ -116,13 +136,23 @@ document.addEventListener('DOMContentLoaded', function() {
             // Usamos url_for para las imágenes locales
             const imageUrl = mineral.imagen ? `static/${mineral.imagen}` : '';
             card.innerHTML = `
-                <img src="${imageUrl}" alt="Imagen de ${mineral.nombre}">
+                <img src="static/${mineral.imagen}" alt="Imagen de ${mineral.nombre}">
                 <h3>${mineral.nombre}</h3>
+                <!-- LÍNEA NUEVA -->
+                <p class="card-description">${mineral.descripcion}</p>
+                <p><em>${mineral.clase}</em></p>
                 <p><strong>Coincidencias:</strong> ${mineral.coincidencias}</p>
                 <p><strong>Fórmula:</strong> ${mineral.formula}</p>
-                <p><strong>Dureza:</strong> ${mineral.dureza}</p>
-                <p><strong>Color:</strong> ${mineral.colores.join(', ')}</p>
-                <p><strong>Raya:</strong> ${mineral.raya.join(', ')}</p>
+                <p><strong>Dureza:</strong> ${mineral.dureza_min} - ${mineral.dureza_max}</p>
+                <p><strong>Exfoliación:</strong> ${mineral.exfoliacion}</p>
+                <p><strong>Fractura:</strong> ${mineral.fractura}</p>
+                <p><strong>Brillo:</strong> ${mineral.brillo}</p>
+                <p><strong>Color(es):</strong> 
+                    ${mineral.colores.map(hex => `<span class="color-swatch" style="background-color: ${hex};"></span>`).join(' ')}
+                </p>
+                <p><strong>Raya:</strong> 
+                    ${mineral.raya.map(hex => `<span class="color-swatch" style="background-color: ${hex};"></span>`).join(' ')}
+                </p>
             `;
             container.appendChild(card);
         });

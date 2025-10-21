@@ -1,18 +1,62 @@
 [
     {
         "nombre": "Cuarzo",
+        "descripcion": "El cuarzo es un mineral compuesto de sílice (SiO₂). Es uno de los minerales más abundantes de la corteza terrestre.",
+        "clase": "Silicatos (Tecnosilicatos)",
         "formula": "SiO₂",
-        "dureza": "7",
+        "dureza_min": 7.0,
+        "dureza_max": 7.0,
+        "exfoliacion": "Ninguna",
+        "fractura": "Concoidea",
         "colores": ["#FFFFFF", "#FFC0CB", "#800080"],
+        "brillo": "vitreo",
         "raya": ["#FFFFFF"],
-        "imagen": "..."
+        "sistema_cristalino": "Trigonal",
+        "imagen": "images/cuarzo.jpg" 
     },
     {
         "nombre": "Pirita",
+        "descripcion": "Conocida como 'el oro de los tontos', la pirita es un sulfuro de hierro (FeS₂). Cristaliza en el sistema cúbico.",
+        "clase": "Sulfuros",
         "formula": "FeS₂",
-        "dureza": "6 - 6.5",
+        "dureza_min": 6.0,
+        "dureza_max": 6.5,
+        "exfoliacion": "Indiscernible",
+        "fractura": "Concoidea, irregular",
         "colores": ["#FFD700"],
+        "brillo": "metalico",
         "raya": ["#3B3C36"],
-        "imagen": "..."
+        "sistema_cristalino": "Cúbico",
+        "imagen": "images/pirita.jpg"
+    },
+    {
+        "nombre": "Oro",
+        "descripcion": "El oro es un metal precioso y un elemento nativo. Es muy denso, blando y el más maleable y dúctil de todos los metales.",
+        "clase": "Elementos Nativos",
+        "formula": "Au",
+        "dureza_min": 2.5,
+        "dureza_max": 3.0,
+        "exfoliacion": "Ninguna",
+        "fractura": "Ganchuda",
+        "colores": ["#FFD700"],
+        "brillo": "metalico",
+        "raya": ["#FFFF00"],
+        "sistema_cristalino": "Cúbico",
+        "imagen": "images/oro.jpg"
+    },
+    {
+        "nombre": "Cuarzo Rosa",
+        "descripcion": "Variedad del cuarzo de color rosado. Su color se debe a trazas de titanio, hierro o manganeso.",
+        "clase": "Silicatos (Tecnosilicatos)",
+        "formula": "SiO₂",
+        "dureza_min": 7.0,
+        "dureza_max": 7.0,
+        "exfoliacion": "Ninguna",
+        "fractura": "Concoidea",
+        "colores": ["#FFC0CB"],
+        "brillo": "vitreo",
+        "raya": ["#FFFFFF"],
+        "sistema_cristalino": "Trigonal",
+        "imagen": "images/cuarzo-rosa.jpg"
     }
 ]

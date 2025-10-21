@@ -98,3 +98,69 @@ button[type="submit"]:hover {
     padding: 1.5rem;
     text-align: center;
 }
+.main-content {
+    display: flex; /* ¡La magia empieza aquí! */
+    justify-content: center; /* Centra las columnas horizontalmente */
+    gap: 2rem; /* Añade un espacio entre las columnas */
+    padding: 2rem;
+    max-width: 1400px; /* Aumentamos el ancho máximo para que quepan las columnas */
+    margin: 0 auto;
+    align-items: flex-start; /* Alinea las columnas en la parte superior */
+}
+
+/* Ajustamos el ancho de las columnas */
+.form-container {
+    flex: 1;
+    max-width: 500px;
+    margin: 0;
+    align-self: flex-start;
+}
+
+#resultados-container {
+    flex: 2; /* Mantenemos el ancho de la columna */
+    margin: 0;
+    text-align: left;
+
+    /* --- ¡La magia del carrusel empieza aquí! --- */
+    display: flex; /* Ponemos los resultados en una fila */
+    overflow-x: auto; /* Permitimos el scroll horizontal */
+    scroll-snap-type: x mandatory; /* Hacemos que el scroll sea "magnético" en el eje X */
+    padding-bottom: 1.5rem; /* Espacio para la barra de scroll */
+    gap: 1.5rem; /* Espacio entre las tarjetas */
+}
+
+/* Estilo opcional para la barra de scroll (se ve mejor) */
+#resultados-container::-webkit-scrollbar {
+    height: 8px;
+}
+#resultados-container::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+
+/* Hacemos que las tarjetas de resultado se organicen en una cuadrícula */
+#resultados-container .card {
+    scroll-snap-align: start; /* Cada tarjeta es un punto de "anclaje" para el scroll */
+    flex: 0 0 450px; /* ¡Más grandes! No se encogen, no crecen, y miden 450px de ancho */
+    display: block; /* Reseteamos el display */
+    width: 450px; /* Forzamos el ancho */
+    margin: 0; /* Reseteamos el margen */
+    vertical-align: top;
+}
+.color-swatch {
+    display: inline-block;      /* Permite que tenga dimensiones */
+    width: 18px;                /* Ancho del cuadradito */
+    height: 18px;               /* Alto del cuadradito */
+    border: 1px solid #ccc;     /* Un borde para que se vean los colores claros */
+    border-radius: 4px;         /* Bordes redondeados */
+    vertical-align: middle;     /* Se alinea verticalmente con el texto */
+    margin-right: 5px;          /* Un pequeño espacio a la derecha */
+}
+.card-description {
+    font-size: 1em; /* La hacemos un poco más grande */
+    color: #555;
+    padding: 0 1.5rem; /* Más padding lateral */
+    margin-bottom: 1rem;
+    text-align: left;
+    line-height: 1.6; /* Aumentamos el interlineado para mejor legibilidad */
+}
