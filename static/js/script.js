@@ -5,21 +5,54 @@ document.addEventListener('DOMContentLoaded', function() {
         el: '[data-coloris]',
         themeMode: 'light',
         swatches: [
-            '#FFFFFF', '#000000', '#FFFF00', '#FFD700', '#C0C0C0',
-            '#B87333', '#008000', '#FF0000', '#0000FF', '#800080',
-            '#FFC0CB', '#A52A2A', '#3B3C36'
+            '#FFFFFF', '#F8F8F5', '#F2F3F4', '#0B0B0B', '#3B3C36',
+            '#FFD700', '#FFFF00', '#D4AF37', '#E3C87C', '#E25822',
+            '#FF0000', '#E66B7D', '#FFC0CB', '#9966CC', '#800080',
+            '#1034A6', '#1E4D8A', '#3A75C4', '#B7D3E9', '#0000FF',
+            '#00A86B', '#00A37A', '#7FFFD4', '#9FE2BF', '#A8C686',
+            '#4B6F44', '#008000', '#90EE90'
         ]
     });
 
     // --- ALGORITMO DE APROXIMACIÓN DE COLOR ---
 
     const colorMap = {
-        '#FFFFFF': 'Blanco / Incoloro', '#000000': 'Negro', '#FFFF00': 'Amarillo',
-        '#FFD700': 'Dorado', '#C0C0C0': 'Plateado', '#B87333': 'Cobre',
-        '#008000': 'Verde', // <-- BONUS FIX: Aquí decía '#000000' por error
-        '#FF0000': 'Rojo', '#0000FF': 'Azul',
-        '#800080': 'Violeta', '#FFC0CB': 'Rosa', '#A52A2A': 'Marrón',
-        '#3B3C36': 'Negro Verdoso'
+        // Colores Originales
+        '#FFFFFF': 'Blanco / Incoloro',
+        '#000000': 'Negro',
+        '#FFFF00': 'Amarillo',
+        '#FFD700': 'Dorado',
+        '#C0C0C0': 'Plateado',
+        '#B87333': 'Cobre',
+        '#008000': 'Verde Oscuro',
+        '#90EE90': 'Verde Claro',
+        '#FF0000': 'Rojo',
+        '#0000FF': 'Azul',
+        '#800080': 'Violeta / Púrpura',
+        '#FFC0CB': 'Rosa',
+        '#A52A2A': 'Marrón',
+        '#3B3C36': 'Negro Verdoso',
+
+        // --- NUEVOS COLORES AÑADIDOS ---
+        '#9966CC': 'Amatista (Púrpura)',
+        '#7FFFD4': 'Aguamarina',
+        '#3A75C4': 'Azul Ágata',
+        '#F2F3F4': 'Blanco Nieve / Gris Pálido',
+        '#B7D3E9': 'Azul Celeste',
+        '#E66B7D': 'Rodonita (Rosa Intenso)',
+        '#0B0B0B': 'Negro Obsidiana', // Muy cercano al negro, pero lo añadimos por si acaso
+        '#4B6F44': 'Verde Oliva / Hornblenda',
+        '#D8B7A4': 'Arena / Rosa del Desierto',
+        '#9FE2BF': 'Verde Ópalo',
+        '#1034A6': 'Azul Azurita',
+        '#E3C87C': 'Crema / Aragonito',
+        '#00A86B': 'Verde Jade',
+        '#1E4D8A': 'Azul Sodalita',
+        '#D4AF37': 'Latón / Calcopirita',
+        '#A8C686': 'Verde Prehnita',
+        '#F8F8F5': 'Blanco Talco',
+        '#E25822': 'Naranja / Carneola',
+        '#00A37A': 'Verde Amazonita'
     };
 
     function hexToRgb(hex) {
