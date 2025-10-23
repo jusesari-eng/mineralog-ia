@@ -8,7 +8,7 @@
         "dureza_max": 7.0,
         "exfoliacion": "Ninguna",
         "fractura": "Concoidea",
-        "colores": ["#FFFFFF", "#FFC0CB", "#800080"],
+        "colores": ["#FFFFFF"],
         "brillo": "vitreo",
         "raya": ["#FFFFFF"],
         "sistema_cristalino": "Trigonal",
